@@ -1,2 +1,20 @@
+<% content_for :title do %>
+	Add a new User
+<% end %>
+
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
+
+<form role="form">
+	<div class="form-group">
+		<label for="username">Username:</label>
+		<input name="username" class="form-control" type="text"></input>
+	</div>
+
+	<div class="form-group">
+		<label for="email">Email:</label>
+		<input name="email" class="form-control" type="text"></input>
+	</div>
+
+	<button type="submit" class="btn btn-primary">Create User</button>
+</form>	
