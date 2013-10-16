@@ -5,15 +5,37 @@
 <h1>Users#new</h1>
 <p>Find me in app/views/users/new.html.erb</p>
 
-<form role="form">
+<% if @user!=nil && @user.errors.any? %>
+	<div id="error_explanation">
+		<h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2>
+		
+		<% @user.errors.full_messages.each do |message| %>
+			<p><%= message %></p>
+		<%end%>
+	</div>
+<%end%>
+
+<form role="form" action="/users" method="post">
+	<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
 	<div class="form-group">
-		<label for="username">Username:</label>
-		<input name="username" class="form-control" type="text"></input>
+		<label for="first_name">First name:</label>
+		<input name="first_name" class="form-control" type="text"></input>
+	</div>
+
+	<div class="form-group">
+		<label for="last_name">Last name:</label>
+		<input name="last_name" class="form-control" type="text"></input>
 	</div>
 
 	<div class="form-group">
 		<label for="email">Email:</label>
 		<input name="email" class="form-control" type="text"></input>
+	</div>
+
+	<div class="form-group">
+		<label for="password">Password:</label>
+		<input name="password" class="form-control" type="password"></input>
 	</div>
 
 	<button type="submit" class="btn btn-primary">Create User</button>
