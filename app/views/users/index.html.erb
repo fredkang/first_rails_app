@@ -20,6 +20,10 @@
 <%	end %>
 
 <% @users.each do |user| %>
+<div class="user-group">
 	<p>Name: <%=user.first_name + " " + user.last_name%></p>
 	<p>Email address: <%=user.email_address%></p>
+	<p><a href=<%="/users/"+user.id.to_s+"/edit"%>>Edit user</a></p>
+</div>
+
 <%end%>
